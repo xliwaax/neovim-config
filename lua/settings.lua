@@ -1,0 +1,10 @@
+vim.opt.number = true          -- Show line numbers
+vim.opt.relativenumber = true  -- Relative line numbers
+vim.opt.expandtab = true       -- Use spaces instead of tabs
+vim.opt.shiftwidth = 4         -- Indentation width
+vim.opt.tabstop = 4            -- Number of spaces for a tab
+vim.opt.smartindent = true     -- Smart indentation
+vim.opt.wrap = false           -- Disable line wrapping
+vim.opt.cursorline = true      -- Highlight the current line
+vim.opt.termguicolors = true   -- Enable 24-bit RGB colors
+vim.opt.timeoutlen = 500       -- Timeout length
