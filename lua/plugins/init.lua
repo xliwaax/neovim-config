@@ -42,6 +42,7 @@ require("lazy").setup({
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function() require("plugins.null-ls") end,
   },
+  { "github/copilot.vim", config = function() require("plugins.copilot") end },
   { "nvim-tree/nvim-web-devicons", config = function() require("plugins.nvim-web-devicons") end },
   -- { "folke/tokyonight.nvim", lazy = false, priority = 1000, config = function() require("plugins.colorscheme") end },
 })

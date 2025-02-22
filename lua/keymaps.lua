@@ -41,7 +41,7 @@ vim.api.nvim_set_keymap('n', '<C-W>s', ':split<CR>', { noremap = true, desc = "H
 vim.api.nvim_set_keymap('n', '<C-W>v', ':vsplit<CR>', { noremap = true, desc = "Vertical split" })
 
 -- Run Python
-vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:tabnew | term python3 %<CR>', { noremap = true, silent = true, desc = "Run Python file" })
+vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:tabnew % | term python %<CR>', { noremap = true, silent = true, desc = "Run Python file" })
 
 -- Go to tab by number
 for i = 1, 9 do
