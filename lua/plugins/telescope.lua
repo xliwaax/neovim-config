@@ -1,8 +1,8 @@
 require('telescope').setup {
   defaults = {
-    vimgrep_arguments = {
-      'grep', '-r', '--line-number', '--no-heading', '--color=never', '--exclude-dir={.git,node_modules}'
-    },
+    -- vimgrep_arguments = {
+    --   'grep', '-r', '--line-number', '--exclude-dir=node_modules', '--exclude-dir=.git'
+    -- },
     prompt_prefix = "🔍 ",
     selection_caret = " ",
     path_display = { "truncate" },
@@ -11,6 +11,18 @@ require('telescope').setup {
         ["<C-j>"] = require('telescope.actions').move_selection_next,
         ["<C-k>"] = require('telescope.actions').move_selection_previous,
         ["<C-q>"] = require('telescope.actions').send_to_qflist + require('telescope.actions').open_qflist,
+        ["<CR>"] = function(prompt_bufnr)
+          local selection = require('telescope.actions.state').get_selected_entry()
+          require('telescope.actions').close(prompt_bufnr)
+          vim.cmd('tabnew ' .. vim.fn.fnameescape(selection.path or selection[1]))
+        end,
+      },
+      n = { -- Adding normal mode mapping for consistency
+        ["<CR>"] = function(prompt_bufnr)
+          local selection = require('telescope.actions.state').get_selected_entry()
+          require('telescope.actions').close(prompt_bufnr)
+          vim.cmd('tabnew ' .. vim.fn.fnameescape(selection.path or selection[1]))
+        end,
       },
     },
   },
