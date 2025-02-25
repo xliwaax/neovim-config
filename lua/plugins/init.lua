@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "sainnhe/gruvbox-material", config = function() require("plugins.colorscheme") end },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", config = function() require("plugins.treesitter") end },
   { "nvim-lualine/lualine.nvim", config = function() require("plugins.lualine") end },
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" }, config = function() require("plugins.telescope") end },
@@ -44,5 +43,5 @@ require("lazy").setup({
   },
   { "github/copilot.vim", config = function() require("plugins.copilot") end },
   { "nvim-tree/nvim-web-devicons", config = function() require("plugins.nvim-web-devicons") end },
-  -- { "folke/tokyonight.nvim", lazy = false, priority = 1000, config = function() require("plugins.colorscheme") end },
+  { "folke/tokyonight.nvim", lazy = false, priority = 1000, config = function() require("plugins.colorscheme") end },
 })
