@@ -54,12 +54,6 @@ vim.api.nvim_set_keymap('n', '<leader>a', 'ggVG', { noremap = true, desc = "Sele
 -- LSP autoformat
 vim.keymap.set('n', '<leader>l', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true, desc = "Format file" })
 
--- Go to definition in new tab
--- vim.keymap.set('n', 'gd', function()
---   vim.cmd('tab split')
---   vim.lsp.buf.definition()
--- end, { noremap = true, silent = true, desc = "Go to definition in new tab" })
-
 vim.keymap.set('n', 'gd', function()
   local params = vim.lsp.util.make_position_params()
   local results = vim.lsp.buf_request_sync(0, "textDocument/definition", params, 5000) -- Increased timeout

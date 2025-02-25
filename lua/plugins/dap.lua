@@ -34,6 +34,5 @@ dap.configurations.python = {
 vim.keymap.set("n", "<Leader>dc", function() dap.continue() end, { desc = "Start/Continue Debugging" })
 vim.keymap.set("n", "<Leader>db", function() dap.toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
 vim.keymap.set("n", "<Leader>dr", function() require("dap").repl.open() end, { desc = "Open REPL" })
-vim.keymap.set("n", "<Leader>dv", function() widgets.hover() end, { desc = "Show Variable" })
 vim.keymap.set("n", "<Leader>de", function() dapui.eval() end, { desc = "Evaluate Expression" })
 vim.keymap.set("n", "<Leader>ds", function() dap.terminate() end, { desc = "Stop Debugger" })

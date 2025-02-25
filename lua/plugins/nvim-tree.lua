@@ -1,6 +1,9 @@
 require('nvim-tree').setup({
   disable_netrw = true,
-  view = { width = 30 },
+  view = {
+    width = 30,
+    side = "left",
+  },
   renderer = {
     highlight_opened_files = "all",
     icons = { show = { file = true, folder = true, folder_arrow = true, git = true } },

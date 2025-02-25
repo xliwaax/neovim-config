@@ -1,8 +1,5 @@
 require('telescope').setup {
   defaults = {
-    -- vimgrep_arguments = {
-    --   'grep', '-r', '--line-number', '--exclude-dir=node_modules', '--exclude-dir=.git'
-    -- },
     prompt_prefix = "🔍 ",
     selection_caret = " ",
     path_display = { "truncate" },
