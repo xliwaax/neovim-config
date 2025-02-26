@@ -40,6 +40,9 @@ vim.api.nvim_set_keymap('n', '<C-W>h', '<C-W><C-H>', { noremap = true, desc = "M
 vim.api.nvim_set_keymap('n', '<C-W>s', ':split<CR>', { noremap = true, desc = "Horizontal split" })
 vim.api.nvim_set_keymap('n', '<C-W>v', ':vsplit<CR>', { noremap = true, desc = "Vertical split" })
 
+-- disable highlight
+vim.api.nvim_set_keymap('n', '<leader>n', ':noh<CR>', { noremap = true, silent = true, desc = "Disable highlights after searching" })
+
 -- Run Python
 vim.api.nvim_set_keymap('n', '<leader>r', ':w<CR>:tabnew % | term python %<CR>', { noremap = true, silent = true, desc = "Run Python file" })
 
