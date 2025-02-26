@@ -44,5 +44,5 @@ require("lazy").setup({
   { "github/copilot.vim", config = function() require("plugins.copilot") end },
   { "nvim-tree/nvim-web-devicons", config = function() require("plugins.nvim-web-devicons") end },
   { "folke/tokyonight.nvim", lazy = false, priority = 1000, config = function() require("plugins.colorscheme") end },
-  { "akinsho/bufferline.nvim", requiers = "nvim-tree/nvim-web-devicons", config = function() require("plugins.bufferline") end },
+  { "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons", config = function() require("plugins.bufferline") end },
 })
