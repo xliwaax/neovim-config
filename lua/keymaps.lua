@@ -31,14 +31,14 @@ vim.api.nvim_set_keymap('n', '<leader>c', '""c', { noremap = true, desc = "Chang
 vim.api.nvim_set_keymap('v', '<leader>c', '""c', { noremap = true, desc = "Change to default register" })
 
 -- Window navigation
-vim.api.nvim_set_keymap('n', '<C-W>j', '<C-W><C-J>', { noremap = true, desc = "Move to window below" })
-vim.api.nvim_set_keymap('n', '<C-W>k', '<C-W><C-K>', { noremap = true, desc = "Move to window above" })
-vim.api.nvim_set_keymap('n', '<C-W>l', '<C-W><C-L>', { noremap = true, desc = "Move to window right" })
-vim.api.nvim_set_keymap('n', '<C-W>h', '<C-W><C-H>', { noremap = true, desc = "Move to window left" })
+vim.api.nvim_set_keymap('n', '<Leader>j', '<C-W><C-J>', { noremap = true, desc = "Move to window below" })
+vim.api.nvim_set_keymap('n', '<Leader>k', '<C-W><C-K>', { noremap = true, desc = "Move to window above" })
+vim.api.nvim_set_keymap('n', '<Leader>l', '<C-W><C-L>', { noremap = true, desc = "Move to window right" })
+vim.api.nvim_set_keymap('n', '<Leader>h', '<C-W><C-H>', { noremap = true, desc = "Move to window left" })
 
 -- Split screen
-vim.api.nvim_set_keymap('n', '<C-W>s', ':split<CR>', { noremap = true, desc = "Horizontal split" })
-vim.api.nvim_set_keymap('n', '<C-W>v', ':vsplit<CR>', { noremap = true, desc = "Vertical split" })
+vim.api.nvim_set_keymap('n', '<Leader>s', ':split<CR>', { noremap = true, desc = "Horizontal split" })
+vim.api.nvim_set_keymap('n', '<Leader>v', ':vsplit<CR>', { noremap = true, desc = "Vertical split" })
 
 -- disable highlight
 vim.api.nvim_set_keymap('n', '<leader>n', ':noh<CR>', { noremap = true, silent = true, desc = "Disable highlights after searching" })
@@ -55,11 +55,11 @@ end
 vim.api.nvim_set_keymap('n', '<leader>a', 'ggVG', { noremap = true, desc = "Select all" })
 
 -- LSP autoformat
-vim.keymap.set('n', '<leader>l', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true, desc = "Format file" })
+vim.keymap.set('n', '<leader>f', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true, desc = "Format file" })
 
 vim.keymap.set('n', 'gd', function()
   local params = vim.lsp.util.make_position_params()
-  local results = vim.lsp.buf_request_sync(0, "textDocument/definition", params, 5000) -- Increased timeout
+  local results = vim.lsp.buf_request_sync(0, "textDocument/definition", params, 1000)
 
   if not results or vim.tbl_isempty(results) then
     vim.notify("No LSP definition results", vim.log.levels.WARN)
@@ -67,6 +67,7 @@ vim.keymap.set('n', 'gd', function()
   end
 
   local result = results[1] and results[1].result and results[1].result[1]
+  print(vim.inspect(result))
   if not result then
     vim.notify("No valid definition found", vim.log.levels.WARN)
     return
